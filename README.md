@@ -1,4 +1,4 @@
-# Mod 3 Assessment - Fetch and Render
+F# Mod 3 Assessment - Fetch and Render
 
 - [Mod 3 Assessment - Fetch and Render](#mod-3-assessment---fetch-and-render)
 - [Congratulations!](#congratulations)
@@ -35,30 +35,30 @@
 # Congratulations!
 Hello everyone! Congratulations on making it to the end of our first 3 modules. These are really the "heart" of JavaScript, so if you feel good about it, you're going to be in great shape for the rest of the year. Mod 3 was all about asynchronous JavaScript and specifically using the `fetch` api to get information from other places. Then, using that raw data to render something out to the screen for the user to see and interact with. You've done this all before, and that's all we're doing today, so no stress!
 
-Now, even if you are stressed because this is a  "big, scary test" what should you do? What we tell you to do every morning: breathe. Let the adrenaline flow through you, it's just your body trying to help. So let's let it do it's thing and pass by simply counting to 15. That may feel like *ages*, but remember those were **seconds** and you have **hours** to get this done. Whenever you're panicked about the time, remember this feeling.
+Now, even if you are stressed because this is a "big, scary week-long Lab," what should you do? What we tell you to do every morning: breathe. Let the adrenaline flow through you; your body is trying to help. So let's let it do its thing and pass by simply counting to 15. That may feel like *ages*, but remember those were **seconds** and you have **days** to get this done. Remember to come back to this whenever you're panicked about the time.
 
 # Game Plan
-After you breathe and collect your senses, the next thing you should do is read over the entire test without coding a thing. This will help give you a lay of the land.
+After you breathe and collect your senses, the next thing you should do is read over the entire README without coding a thing. This will help give you a lay of the land.
 
-As we said this assessment is about fetching and rendering. So to that end, we recommend you do the short answers first, as they have useful information about the test itself. Then tack each feature in the order its outlined below. Each little feature builds on the last and uses the same pattern which is:
+As we said, this Lab is about fetching and rendering. So, to that end, we recommend you do the short answers first, as they have useful information about the lab itself. Then, tackle each feature in the order outlined below. Each little feature builds on the last and uses the same pattern, which is:
 
 1. Build a fetch function to get the data
 2. Build a render function to put the data on the page
 3. Add it to your main program to see it work
 4. Adding any events
 
-Your tests are also here to help you, and if you're ever confused about something (or we make a typo in this README), just focus on the tests! If you get them to pass, you're all set.
+Your tests are also here to help you, and if you're ever confused about something, just focus on the tests! If you get them to pass, you're all set.
 
 ## Timing
 Remember, there are a lot of questions and code here. Do not spend too long on any one of them. Make sure to move. If you're still stuck exactly where you were after 5 minutes, take a break and try something else.
 
 # APIs
-The two apis we'll use today are:
+The two APIs we'll use today are:
 
 - https://openlibrary.org/
 - https://jsonplaceholder.typicode.com/
 
-You've used JSON Placeholder before, and we're going to use it to create a new user (it's one of the few free API's that will let us make our own data). We're also going to use Open Library's API to get some books and authors. We selected this API because it's a little more "real world" with lots of information and quirks. We've kept it focused this time, but keep your wits about you!
+You've used JSON Placeholder before, and we will use it to create a new user (it's one of the few free APIs that will let us make our own data). We will also use Open Library's API to get some books and authors. We selected this API because it's a little more "real world" with lots of information and quirks. We've kept it focused this time, but keep your wits about you!
 
 
 # User Stories
@@ -66,14 +66,14 @@ You've used JSON Placeholder before, and we're going to use it to create a new u
 Users should be able to do the following:
 - Users can see a few fantasy books
 - Users can click on a button for each book to view information about the author of that book
-- Totally unrelated: Users can fill out a form to make a new user
+- Unrelated: Users can fill out a form to make a new user
 
 Here's a final screenshot:
 
 ![Final Screenshot](./images/finished-app.png)
 
 ## CSS
-We added some *very* basic and open ended CSS. Please don't mess with this, this is not a CSS challenge, and we don't want you to waste a single second here. We've taken care of the basic styles (like `divs` have borders so you can see things, and lists don't have their default styles).
+We added some *very* basic and open ended CSS. Please don't mess with it. This is not a CSS challenge, and we don't want you to waste a single second here. We've taken care of the basic styles (like `divs` have borders so you can see things, and lists don't have their default styles).
 
 
 > And with that, off you go! Good luck!
@@ -82,26 +82,26 @@ We added some *very* basic and open ended CSS. Please don't mess with this, this
 Seriously, do these first.
 
 # Feature 1: Getting our books!
-So in this section, we're going to grab 3 books, parse and format the data, and then render them to the screen.
+In this section, we're going to grab three books, parse and format the data, and then render them to the screen.
 
 ## Section 1.1 - getFirstThreeFantasyBooks
-Inside `fetch-functions.js` you need to write a function `getFirstThreeFantasyBooks`. This function takes in no arguments, and returns 3 books of the fantasy genre. Here's the URL you should work with:
+Inside `fetch-functions.js` you need to write a function `getFirstThreeFantasyBooks`. This function takes in no arguments and returns 3 books of the fantasy genre. Here's the URL you should work with:
 
 ```plaintext
 https://openlibrary.org/subjects/fantasy.json
 ```
 
-Notice something about it: it ends with `.json`. This is how *this* API deals with the different formats of data. It's an older convention, normally we'd use something like `/api`, but here is a case where they chose not to! So don't forget to add that `.json` to the end of your URL.
+Notice something about it: it ends with `.json`. This is how this API deals with the different formats of data. It's an older convention. Normally, we'd use something like `/api`, but here is a case where they chose not to! So don't forget to add that `.json` to the end of your URL.
 
 ### Function requirements
-- It should send a fetch request to the correct URL (this is not a trick question, make sure to use the URL listed above)
+- It should send a fetch request to the correct URL (this is not a trick question; make sure to use the URL listed above)
 - It should return a promise
 - If there are no errors, the returned promise should resolve to an array of the first 3 books from the API
   - See the **Data Formatting** section for details on how to format each book in the array.
-- If there is a fetch error, catch the error,. `console.warn` the error message, and the returned promise should resolve to `null`.
-- If API response is not `ok`, then *you* should throw an error with a message of `"Failed to get fantasy books"`
-  - If you set up your function right, that means your function would `console.warn` the error message, and then resolve to `null`
-- We do mean "first 3" — we double checked that URL, and there are definitely 3 books that meet all our needs. Please maintain the order so the tests pass (no sorting the books or anything)
+- If there is a fetch error, catch the error. `console.warn` the error message, and the returned promise should resolve to `null`.
+- If the API response is not `ok`, then *you* should throw an error with the message of `"Failed to get fantasy books"`
+  - If you set up your function right, that means your function would `console.warn` the error message and then resolve to `null`
+- We do mean "first 3" — we double-checked that URL, and there are definitely 3 books that meet all our needs. Please maintain the order so the tests pass (no sorting the books or anything)
 
 ### Data formatting
 The data you get back from the API is going to be a little messy. It's going to be an object with some metadata in it, but the part we want to deal with is the `works` array, which holds our books. Here's an example response:
@@ -213,7 +213,7 @@ Don't worry about button functionality now, only rendering!
 
 ### Testing
 
-We've already created a `bookListEl` variable for you to use.What you need to do here is use your fetch function `getFirstThreeFantasyBooks` to get some books, and then invoke `renderBookList` with the already created `bookListEl` variable and your fetched `books` to render your books to the screen!
+We've already created a `bookListEl` variable for you to use. What you need to do here is use your fetch function `getFirstThreeFantasyBooks` to get some books, and then invoke `renderBookList` with the already created `bookListEl` variable and your fetched `books` to render your books to the screen!
 
 You'll know you've done it if the tests are passing and the page loads up your books!
 
