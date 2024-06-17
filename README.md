@@ -1,4 +1,4 @@
-F# Mod 3 Assessment - Fetch and Render
+# Mod 3 Assessment - Fetch and Render
 
 - [Mod 3 Assessment - Fetch and Render](#mod-3-assessment---fetch-and-render)
 - [Congratulations!](#congratulations)
