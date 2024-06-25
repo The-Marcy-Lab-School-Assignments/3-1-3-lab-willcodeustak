@@ -1,5 +1,6 @@
 import './style.css';
 import app from './app'
 
-const appDiv = document.querySelector('#app');
-app(appDiv);
+// "root node" element
+const appDiv = document.querySelector('#app'); //grabs app element
+app(appDiv); //invokes app function giving it this appDiv

@@ -9,7 +9,10 @@ import {
   getAuthor,
   createNewUser,
 } from './fetch-functions.js';
+//layers - fetch will fetch and clean up data
+//presentation layer - deals with what user see's - Rendering
 
+// app function - integration layer , grabs all elements ,assembles and executes helper functions.
 export default async function app(appDiv) {
   const bookListEl = document.createElement('ul');
   bookListEl.id = 'book-list';
@@ -30,8 +33,16 @@ export default async function app(appDiv) {
   // renderNewUserForm;
 
   // Fetch the books!
+  const books = await getFirstThreeFantasyBooks();  //first we fetch
+  //if books is a promise you can .then it
+  //however await does this for us and we can just console.log(books)
+  console.log(books);
   // const books =
   // render out the books
+
+ //then we render
+renderBookList(bookListEl,books) //takes in container and data and populates the container with data
+
   // renderBookList
 
   // bookListEl.addEventListener('???', () => {})
