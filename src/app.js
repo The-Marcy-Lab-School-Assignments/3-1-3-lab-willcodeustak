@@ -41,9 +41,14 @@ export default async function app(appDiv) {
   // render out the books
 
  //then we render
+
 renderBookList(bookListEl,books) //takes in container and data and populates the container with data
 
-  // renderBookList
+
+
+
+
+  // renders BookList
 
   // bookListEl.addEventListener('???', () => {})
 

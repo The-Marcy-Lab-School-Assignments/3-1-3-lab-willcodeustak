@@ -4,16 +4,16 @@ export const renderBookList = (bookListEl, books) => {
   bookListEl.innerHTML = '';
   books.forEach((book) => {
     //created elements
-    const li = document.createElement('li')
-    const img = document.createElement('img')
-    const p = document.createElement('p')
-    const button = document.createElement('button')
+    const li = document.createElement('li');
+    const img = document.createElement('img');
+    const p = document.createElement('p');
+    const button = document.createElement('button');
 
     //manipulated the content of the elements
     img.src = book.coverUrl;
     img.alt = `An old cover of ${book.title}`
 
-    p.textcontent = `Title: ${book.title}`
+    p.textContent = `Title: ${book.title}`
 
     button.textContent = `View ${book.author.name}`
     button.setAttribute(`data-author-url-key`,book.author.urlKey)
