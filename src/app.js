@@ -50,7 +50,24 @@ renderBookList(bookListEl,books) //takes in container and data and populates the
 
   // renders BookList
 
-  // bookListEl.addEventListener('???', () => {})
+  bookListEl.addEventListener('click', async (e) => {
+    const button = e.target;
+    if (button.tagName === 'BUTTON') {
+        const authorKey = button.dataset.authorUrlKey;
+        const authorInfo = await getAuthor(authorKey);
+        renderAuthorInfo(authorInfoEl, authorInfo);
+    }
+});
 
-  // newUserFormEl.addEventListener('???', () => {})
+renderNewUserForm(newUserFormEl)
+  newUserFormEl.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      
+    const form =  new FormData(e.target)
+    const object =  Object.fromEntries(form)
+
+    const newUser =  await createNewUser(object)
+    renderNewUser(newUserEl,newUser)
+
+  })
 }
